@@ -1,59 +1,23 @@
-import { Header } from "@/components/sections/header";
-import { Footer } from "@/components/sections/footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { HeroSection } from "@/components/sections/hero";
+import { HvaViGjorSection } from "@/components/sections/hva-vi-gjor";
+import { ViLevererSection } from "@/components/sections/vi-leverer";
+import { CaseStudiesSection } from "@/components/sections/case-studies";
+import { TaKontaktSection } from "@/components/sections/ta-kontakt";
 
-export default function MarketingPage() {
+export default function HomePage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main>
-        <section id="hero" className="border-b py-16 sm:py-20">
-          <div className="container">
-            <h1 className="max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl">
-              Basen for neste Aksellor-lignende marketing-side.
-            </h1>
-            <p className="mt-4 max-w-xl text-balance text-sm text-muted-foreground sm:text-base">
-              Rask iterasjon, ryddig struktur, god typografi og forutsigbar
-              spacing.
-            </p>
-          </div>
-        </section>
-
-        <section id="produkt" className="border-b py-12 sm:py-16">
-          <div className="container">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-              Placeholder: Produktseksjon
-            </h2>
-            <p className="mt-2 max-w-lg text-sm text-muted-foreground sm:text-base">
-              Beskriv verdiforslaget ditt her. Bytt senere til faktiske
-              komponenter.
-            </p>
-          </div>
-        </section>
-
-        <section id="om-oss" className="border-b py-12 sm:py-16">
-          <div className="container">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-              Placeholder: Om oss
-            </h2>
-            <p className="mt-2 max-w-lg text-sm text-muted-foreground sm:text-base">
-              Historie, team og sosial proof kan bo i egne seksjons-komponenter.
-            </p>
-          </div>
-        </section>
-
-        <section id="kontakt" className="py-12 sm:py-16">
-          <div className="container">
-            <h2 className="text-xl font-semibold tracking-tight sm:text-2xl">
-              Placeholder: Kontakt
-            </h2>
-            <p className="mt-2 max-w-lg text-sm text-muted-foreground sm:text-base">
-              Skjema, CTA eller lenke til booking verktøy kan komme her.
-            </p>
-          </div>
-        </section>
+        <HeroSection />
+        <HvaViGjorSection />
+        <ViLevererSection />
+        <CaseStudiesSection />
+        <TaKontaktSection />
       </main>
       <Footer />
     </div>
   );
 }
-

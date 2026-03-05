@@ -15,8 +15,9 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aksellor Starter",
-  description: "Marketing-base med Next.js 14+",
+  title: "Aksellor Cloud – Fremtidens digital handel",
+  description:
+    "Plattform, e-handel og rådgivning for eksponentiell vekst. Mindre leverandøravhengighet, ett samlet ansvarspunkt.",
 };
 
 export default function RootLayout({

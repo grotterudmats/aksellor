@@ -1,82 +1,51 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
+/* Aksellor Cloud – premium B2B tech. Off-white base, violet accent, muted gray. */
 :root {
-  /* Light mode (HSL tokens) */
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --background: 220 20% 98%;
+  --foreground: 224 71% 4%;
 
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 224 71% 4%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 262 83% 58%;
+  --primary-foreground: 0 0% 100%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 224 71% 4%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 220 14% 94%;
+  --muted-foreground: 220 9% 42%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 262 83% 58%;
+  --accent-foreground: 0 0% 100%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --border: 220 13% 90%;
+  --input: 220 13% 91%;
+  --ring: 262 83% 58%;
 
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 210 40% 98%;
+  /* Cards / surfaces: 20–28px radius */
+  --radius: 1.25rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 1.75rem;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
+  /* Hairline = 1px */
+  --border-width: 1px;
 
-  --radius: 0.75rem;
+  --shadow-soft: 0 2px 12px -4px rgba(0, 0, 0, 0.06), 0 6px 24px -8px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 4px 24px -6px rgba(0, 0, 0, 0.06), 0 12px 40px -12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 8px 32px -8px rgba(0, 0, 0, 0.08), 0 16px 48px -16px rgba(0, 0, 0, 0.08);
 
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-.dark {
-  /* Dark mode */
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 210 40% 98%;
-
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 222.2 84% 4.9%;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @theme inline {
-  /* Map CSS vars -> Tailwind tokens (for shadcn/ui) */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-  --color-popover: hsl(var(--popover));
-  --color-popover-foreground: hsl(var(--popover-foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-secondary: hsl(var(--secondary));
@@ -85,16 +54,9 @@
   --color-muted-foreground: hsl(var(--muted-foreground));
   --color-accent: hsl(var(--accent));
   --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
@@ -111,14 +73,44 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4 {
+a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: hsl(var(--foreground));
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Typography scale: H1, H2, lead */
+h1 {
   font-weight: 600;
   letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+h2 {
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+h3, h4 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
 }
 
 p {
@@ -126,12 +118,103 @@ p {
   margin-bottom: 0.25rem;
 }
 
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+@media (min-width: 640px) {
+  .lead {
+    font-size: 1.25rem;
+  }
+}
+
 @layer utilities {
   .container {
-    @apply mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .section-pad {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  @media (min-width: 640px) {
+    .section-pad {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  .section-sep {
+    border-top: 1px solid hsl(var(--border) / 0.7);
+    background: linear-gradient(to bottom, hsl(var(--border) / 0.4), transparent 1px) 0 0 / 100% 1px no-repeat;
   }
 }
 
 main {
-  @apply flex-1;
+  flex: 1;
+}
+
+/* Aurora + mesh hero background */
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: hsl(var(--background));
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -15%, hsl(262 83% 58% / 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% -5%, hsl(262 83% 58% / 0.06), transparent 50%),
+    radial-gradient(ellipse 60% 35% at 0% 15%, hsl(262 83% 58% / 0.05), transparent 45%);
+  pointer-events: none;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(hsl(var(--foreground) / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--foreground) / 0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+/* Logo row: grayscale, low opacity, no pills */
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem 2rem;
+}
+
+.logo-row-item {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--foreground) / 0.4);
 }
