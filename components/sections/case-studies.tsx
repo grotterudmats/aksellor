@@ -90,7 +90,7 @@ export function CaseStudiesSection() {
         <div className="mt-10 space-y-3">
           {cases.map((c, i) => {
             const isOpen = openId === c.id;
-            const fu = fadeUp(i, reduced);
+            const fu = fadeUp(i, reduced ?? undefined);
             return (
               <motion.div
                 key={c.id}
