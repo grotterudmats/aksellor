@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 
@@ -15,10 +16,19 @@ export function Header() {
       <div className="container flex h-14 items-center justify-between sm:h-16">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-foreground"
+          className="flex items-center gap-2"
           aria-label="Aksellor Cloud hjem"
         >
-          Aksellor Cloud
+          <Image
+            src="/logo.svg"
+            alt=""
+            width={32}
+            height={32}
+            className="h-7 w-auto sm:h-8"
+          />
+          <span className="hidden text-sm font-medium tracking-tight text-muted-foreground sm:inline">
+            Aksellor Cloud
+          </span>
         </Link>
         <nav
           className="flex items-center gap-6 text-sm text-muted-foreground"

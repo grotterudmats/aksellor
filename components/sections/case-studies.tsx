@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { fadeUp } from "@/lib/motion";
 
 const cases = [
   {
@@ -67,6 +69,7 @@ const cases = [
 
 export function CaseStudiesSection() {
   const [openId, setOpenId] = useState<string | null>(null);
+  const reduced = useReducedMotion();
 
   return (
     <section
@@ -85,11 +88,16 @@ export function CaseStudiesSection() {
           Slik har vi hjulpet bedrifter med plattform, e-handel og vekst.
         </p>
         <div className="mt-10 space-y-3">
-          {cases.map((c) => {
+          {cases.map((c, i) => {
             const isOpen = openId === c.id;
+            const fu = fadeUp(i, reduced);
             return (
-              <div
+              <motion.div
                 key={c.id}
+                initial={fu.initial}
+                whileInView={fu.whileInView}
+                viewport={fu.viewport}
+                transition={fu.transition}
                 className="overflow-hidden rounded-[var(--radius)] border border-border bg-card transition-shadow hover:shadow-[var(--shadow)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
               >
                 <div className="p-5 sm:p-6">
@@ -98,7 +106,7 @@ export function CaseStudiesSection() {
                       {c.name}
                     </h3>
                     <span
-                      className="rounded-md border border-border bg-muted/60 px-2 py-0.5 text-xs font-medium text-muted-foreground"
+                      className="rounded-md border border-border/80 bg-muted/50 px-2 py-0.5 text-xs font-medium text-muted-foreground"
                       aria-hidden
                     >
                       {c.tag}
@@ -116,7 +124,10 @@ export function CaseStudiesSection() {
                   >
                     Les mer
                     <ChevronDown
-                      className={cn("ml-1 h-4 w-4 transition-transform duration-200 ease-out", isOpen && "rotate-180")}
+                      className={cn(
+                        "ml-1 h-4 w-4 transition-transform duration-200 ease-out",
+                        isOpen && "rotate-180"
+                      )}
                       aria-hidden
                     />
                   </Button>
@@ -130,8 +141,17 @@ export function CaseStudiesSection() {
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   )}
                 >
-                  <div className="min-h-0">
-                    <div className="border-t border-border/80 bg-muted/30 px-5 py-4 sm:px-6 sm:py-5">
+                  <div className="min-h-0 overflow-hidden">
+                    <motion.div
+                      className="border-t border-border/80 bg-muted/30 px-5 py-4 sm:px-6 sm:py-5"
+                      initial={false}
+                      animate={{ opacity: isOpen ? 1 : 0 }}
+                      transition={{
+                        duration: 0.25,
+                        delay: isOpen ? 0.05 : 0,
+                        ease: "easeOut",
+                      }}
+                    >
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {c.expanded}
                       </p>
@@ -152,10 +172,10 @@ export function CaseStudiesSection() {
                           </li>
                         ))}
                       </ul>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
