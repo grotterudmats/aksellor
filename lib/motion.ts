@@ -2,7 +2,8 @@
  * Shared motion config for scroll reveal. Respects prefers-reduced-motion.
  * Use with useReducedMotion() from framer-motion.
  */
-export function fadeUp(i: number, reduced?: boolean) {
+export function fadeUp(i: number, reduced?: boolean | null) {
+  const r = !!reduced;
   if (reduced) {
     return {
       initial: { opacity: 1, y: 0 },
