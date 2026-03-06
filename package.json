@@ -6,13 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "qa:design": "node scripts/design-qa-audit.mjs",
+    "qa:design:after": "node scripts/design-qa-audit.mjs after",
+    "screenshots:debug": "node scripts/screenshots-debug.mjs",
+    "screenshots:debug:after": "node scripts/screenshots-debug.mjs after"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.35.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
     "react": "19.2.3",
@@ -30,6 +35,7 @@
     "eslint-config-next": "16.1.6",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
+    "playwright": "^1.58.2",
     "prettier": "^3.8.1",
     "shadcn-ui": "^0.9.5",
     "tailwindcss": "^4",

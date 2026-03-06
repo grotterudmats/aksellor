@@ -5,15 +5,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-2xl text-sm font-medium transition-colors transition-shadow duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 ring-offset-background active:translate-y-[0.5px] active:shadow-none",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-[var(--radius)] text-sm font-medium transition-all duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60 ring-offset-background",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-[var(--shadow-soft)] focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        default:
+          "relative overflow-hidden bg-primary text-primary-foreground shadow-[var(--shadow)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-white/20 before:content-[''] hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-[var(--shadow-2)]",
         outline:
-          "border border-input bg-background text-foreground hover:bg-muted/50 hover:border-border",
-        ghost:
-          "text-foreground hover:bg-muted/50 border border-transparent",
+          "border border-border bg-transparent text-foreground hover:bg-muted/60",
+        ghost: "text-foreground hover:bg-muted/60 border border-transparent",
         subtle: "bg-muted text-foreground hover:bg-muted/80",
       },
       size: {
@@ -51,4 +51,3 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = "Button";
-

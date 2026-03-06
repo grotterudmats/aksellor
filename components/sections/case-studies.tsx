@@ -77,11 +77,11 @@ export function CaseStudiesSection() {
       <div className="container">
         <h2
           id="case-studies-heading"
-          className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+          className="section-title text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
         >
           Case studies
         </h2>
-        <p className="mt-3 max-w-2xl lead text-muted-foreground">
+        <p className="section-lead mt-3 max-w-2xl lead text-muted-foreground">
           Slik har vi hjulpet bedrifter med plattform, e-handel og vekst.
         </p>
         <div className="mt-10 space-y-3">
@@ -90,7 +90,7 @@ export function CaseStudiesSection() {
             return (
               <div
                 key={c.id}
-                className="overflow-hidden rounded-[1.5rem] border border-border/80 bg-card shadow-sm transition-shadow hover:shadow-[var(--shadow-soft)]"
+                className="overflow-hidden rounded-[var(--radius)] border border-border bg-card transition-shadow hover:shadow-[var(--shadow)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
               >
                 <div className="p-5 sm:p-6">
                   <div className="flex flex-wrap items-center gap-2">
@@ -98,7 +98,7 @@ export function CaseStudiesSection() {
                       {c.name}
                     </h3>
                     <span
-                      className="rounded-md border border-border/80 bg-muted/50 px-2 py-0.5 text-xs font-medium text-muted-foreground"
+                      className="rounded-md border border-border bg-muted/60 px-2 py-0.5 text-xs font-medium text-muted-foreground"
                       aria-hidden
                     >
                       {c.tag}
@@ -108,7 +108,7 @@ export function CaseStudiesSection() {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="mt-4 rounded-[1.25rem]"
+                    className="mt-4 rounded-[var(--radius)]"
                     onClick={() => setOpenId(isOpen ? null : c.id)}
                     aria-expanded={isOpen}
                     aria-controls={`case-content-${c.id}`}
@@ -116,7 +116,7 @@ export function CaseStudiesSection() {
                   >
                     Les mer
                     <ChevronDown
-                      className={cn("ml-1 h-4 w-4 transition-transform duration-200", isOpen && "rotate-180")}
+                      className={cn("ml-1 h-4 w-4 transition-transform duration-200 ease-out", isOpen && "rotate-180")}
                       aria-hidden
                     />
                   </Button>
@@ -131,7 +131,7 @@ export function CaseStudiesSection() {
                   )}
                 >
                   <div className="min-h-0">
-                    <div className="border-t border-border/60 bg-muted/30 px-5 py-4 sm:px-6 sm:py-5">
+                    <div className="border-t border-border/80 bg-muted/30 px-5 py-4 sm:px-6 sm:py-5">
                       <p className="text-sm leading-relaxed text-muted-foreground">
                         {c.expanded}
                       </p>
@@ -145,7 +145,7 @@ export function CaseStudiesSection() {
                             className="flex items-start gap-3 text-sm text-foreground"
                           >
                             <span
-                              className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary"
+                              className="mt-1.5 h-1.5 w-1 shrink-0 rounded-sm bg-primary"
                               aria-hidden
                             />
                             <span>{impact}</span>

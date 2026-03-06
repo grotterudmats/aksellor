@@ -31,11 +31,11 @@ export function TaKontaktSection() {
           <div>
             <h2
               id="ta-kontakt-heading"
-              className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+              className="section-title text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
             >
               Ta kontakt
             </h2>
-            <p className="mt-4 lead text-muted-foreground">
+            <p className="section-lead mt-4 lead text-muted-foreground">
               Vi vil gjerne høre om behovet ditt og hvordan Aksellor Cloud kan
               bidra. Send en melding så tar vi en uforpliktende prat.
             </p>
@@ -53,7 +53,9 @@ export function TaKontaktSection() {
               ))}
             </ul>
           </div>
-          <div className="rounded-[1.5rem] border border-border/80 bg-card p-6 shadow-[var(--shadow-soft)] sm:p-8">
+          <div
+            className="rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow)] sm:p-8"
+          >
             <form
               onSubmit={handleSubmit}
               className="space-y-4"
@@ -72,7 +74,7 @@ export function TaKontaktSection() {
                   name="name"
                   required
                   autoComplete="name"
-                  className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"
+                  className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   placeholder="Ditt navn"
                 />
               </div>
@@ -89,7 +91,7 @@ export function TaKontaktSection() {
                   name="email"
                   required
                   autoComplete="email"
-                  className="mt-1.5 w-full rounded-xl border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"
+                  className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   placeholder="din@epost.no"
                 />
               </div>
@@ -105,14 +107,14 @@ export function TaKontaktSection() {
                   name="message"
                   required
                   rows={4}
-                  className="mt-1.5 w-full resize-y rounded-xl border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"
+                  className="mt-1.5 w-full resize-y rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   placeholder="Fortell oss kort om behovet ditt..."
                 />
               </div>
               <Button
                 type="submit"
                 size="lg"
-                className="w-full rounded-[1.25rem] sm:w-auto"
+                className="w-full rounded-[var(--radius)] sm:w-auto"
                 disabled={status === "sending"}
               >
                 {status === "sending"

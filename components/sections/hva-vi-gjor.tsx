@@ -19,11 +19,11 @@ export function HvaViGjorSection() {
           <div>
             <h2
               id="hva-vi-gjor-heading"
-              className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
+              className="section-title text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
             >
               Hva vi gjør
             </h2>
-            <p className="mt-4 lead text-muted-foreground">
+            <p className="section-lead mt-4 lead text-muted-foreground">
               Aksellor Cloud styrker bedrifter med banebrytende nettløsninger,
               e-handelsplattformer og strategisk rådgivning for å drive
               eksponentiell vekst. Du får mindre leverandøravhengighet, raskere
@@ -32,7 +32,7 @@ export function HvaViGjorSection() {
             </p>
           </div>
           <div
-            className="rounded-[1.5rem] border border-border/80 bg-gradient-to-br from-card to-muted/20 p-6 shadow-[var(--shadow-card)] sm:p-8"
+            className="rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-2)] sm:p-8"
           >
             <h3 className="text-lg font-semibold tracking-tight text-foreground">
               Én plattform

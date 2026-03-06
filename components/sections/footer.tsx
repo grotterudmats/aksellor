@@ -1,81 +1,40 @@
+import Link from "next/link";
+
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t bg-background/80">
-      <div className="container py-10 text-sm text-muted-foreground">
-        <div className="grid gap-8 md:grid-cols-[2fr,1fr,1fr,1fr]">
+    <footer className="border-t border-border bg-background">
+      <div className="container py-12">
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-base font-semibold text-foreground">Aksellor</p>
-            <p className="mt-3 max-w-sm text-xs">
-              Strategy, design and engineering for ambitious B2B companies.
+            <p className="text-sm font-semibold text-foreground">Aksellor Cloud</p>
+            <p className="mt-1 max-w-xs text-xs text-muted-foreground">
+              Plattform, e-handel og rådgivning for fremtidens digital handel.
             </p>
           </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
-              Company
-            </p>
-            <ul className="mt-3 space-y-1.5">
-              <li>
-                <a href="#what-we-do" className="hover:text-foreground">
-                  What we do
-                </a>
-              </li>
-              <li>
-                <a href="#cases" className="hover:text-foreground">
-                  Cases
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-foreground">
-                  About
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
-              Resources
-            </p>
-            <ul className="mt-3 space-y-1.5">
-              <li>
-                <a href="#faq" className="hover:text-foreground">
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-foreground">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-foreground">
-              Legal
-            </p>
-            <ul className="mt-3 space-y-1.5">
-              <li>
-                <a href="#privacy" className="hover:text-foreground">
-                  Privacy
-                </a>
-              </li>
-              <li>
-                <a href="#cookies" className="hover:text-foreground">
-                  Cookies
-                </a>
-              </li>
-            </ul>
-          </div>
+          <nav
+            className="flex flex-wrap gap-6 text-sm text-muted-foreground"
+            aria-label="Footer-navigasjon"
+          >
+            <Link href="#hva-vi-gjor" className="transition-colors hover:text-foreground">
+              Hva vi gjør
+            </Link>
+            <Link href="#vi-leverer" className="transition-colors hover:text-foreground">
+              Vi leverer
+            </Link>
+            <Link href="#case-studies" className="transition-colors hover:text-foreground">
+              Cases
+            </Link>
+            <Link href="#ta-kontakt" className="transition-colors hover:text-foreground">
+              Ta kontakt
+            </Link>
+          </nav>
         </div>
-        <div className="mt-8 flex flex-col gap-2 border-t border-border pt-4 text-xs md:flex-row md:items-center md:justify-between">
-          <span>© {year} Aksellor. All rights reserved.</span>
-          <span className="text-[0.7rem] uppercase tracking-[0.18em] text-muted-foreground">
-            Built with Next.js
-          </span>
+        <div className="mt-8 border-t border-border/70 pt-6 text-xs text-muted-foreground">
+          © {year} Aksellor. Alle rettigheter forbeholdt.
         </div>
       </div>
     </footer>
   );
 }
-

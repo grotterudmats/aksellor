@@ -1,64 +1,39 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
-/* Aksellor Cloud – premium B2B tech. Off-white base, violet accent, muted gray. */
+/* shadcn-style design tokens (HSL values without hsl()) */
 :root {
   --background: 220 20% 98%;
   --foreground: 224 71% 4%;
-
-  --card: 0 0% 100%;
-  --card-foreground: 224 71% 4%;
-
   --primary: 262 83% 58%;
   --primary-foreground: 0 0% 100%;
-
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 224 71% 4%;
-
   --muted: 220 14% 94%;
   --muted-foreground: 220 9% 42%;
-
-  --accent: 262 83% 58%;
-  --accent-foreground: 0 0% 100%;
-
-  --border: 220 13% 90%;
-  --input: 220 13% 91%;
+  --border: 220 13% 92%;
   --ring: 262 83% 58%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 71% 4%;
+  --input: 220 13% 91%;
 
-  /* Cards / surfaces: 20–28px radius */
   --radius: 1.25rem;
-  --radius-lg: 1.5rem;
-  --radius-xl: 1.75rem;
-
-  /* Hairline = 1px */
-  --border-width: 1px;
-
-  --shadow-soft: 0 2px 12px -4px rgba(0, 0, 0, 0.06), 0 6px 24px -8px rgba(0, 0, 0, 0.06);
-  --shadow-card: 0 4px 24px -6px rgba(0, 0, 0, 0.06), 0 12px 40px -12px rgba(0, 0, 0, 0.08);
-  --shadow-card-hover: 0 8px 32px -8px rgba(0, 0, 0, 0.08), 0 16px 48px -16px rgba(0, 0, 0, 0.08);
-
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 20px -4px rgba(0, 0, 0, 0.08);
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
   --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-input: hsl(var(--input));
   --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
 }
 
 *,
@@ -89,16 +64,21 @@ a:hover {
   text-decoration: underline;
 }
 
-a:focus-visible {
+:focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;
 }
 
-/* Typography scale: H1, H2, lead */
+::selection {
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--foreground));
+}
+
 h1 {
   font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 1.12;
+  line-height: 1.08;
+  max-width: 60ch;
 }
 
 h2 {
@@ -120,7 +100,8 @@ p {
 
 .lead {
   font-size: 1.125rem;
-  line-height: 1.65;
+  line-height: 1.6;
+  max-width: 60ch;
 }
 @media (min-width: 640px) {
   .lead {
@@ -156,14 +137,27 @@ p {
   }
   @media (min-width: 640px) {
     .section-pad {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-pad {
       padding-top: 5rem;
       padding-bottom: 5rem;
     }
   }
 
   .section-sep {
-    border-top: 1px solid hsl(var(--border) / 0.7);
-    background: linear-gradient(to bottom, hsl(var(--border) / 0.4), transparent 1px) 0 0 / 100% 1px no-repeat;
+    border-top: 1px solid hsl(var(--border) / 0.6);
+  }
+
+  .section-title {
+    margin-bottom: 0.75rem;
+  }
+  .section-lead {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -171,50 +165,36 @@ main {
   flex: 1;
 }
 
-/* Aurora + mesh hero background */
 .hero-bg {
   position: relative;
-  isolation: isolate;
   background-color: hsl(var(--background));
 }
 
-.hero-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    radial-gradient(ellipse 90% 55% at 50% -15%, hsl(262 83% 58% / 0.12), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 100% -5%, hsl(262 83% 58% / 0.06), transparent 50%),
-    radial-gradient(ellipse 60% 35% at 0% 15%, hsl(262 83% 58% / 0.05), transparent 45%);
-  pointer-events: none;
+.hero-h1 {
+  font-size: clamp(1.875rem, 4vw + 1rem, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(hsl(var(--foreground) / 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, hsl(var(--foreground) / 0.025) 1px, transparent 1px);
-  background-size: 56px 56px;
-  pointer-events: none;
-}
-
-/* Logo row: grayscale, low opacity, no pills */
+/* Logo row: flex wrap, intentional gaps */
 .logo-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1.5rem 2rem;
+  gap: 0.5rem 1.25rem;
+  max-width: 26rem;
 }
 
-.logo-row-item {
+.logo-wordmark {
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: hsl(var(--foreground) / 0.4);
+  color: hsl(var(--muted-foreground));
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.logo-wordmark:hover {
+  opacity: 0.85;
 }

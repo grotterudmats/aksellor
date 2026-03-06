@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/sections/header";
+import { Footer } from "@/components/sections/footer";
 import { HeroSection } from "@/components/sections/hero";
 import { HvaViGjorSection } from "@/components/sections/hva-vi-gjor";
 import { ViLevererSection } from "@/components/sections/vi-leverer";
