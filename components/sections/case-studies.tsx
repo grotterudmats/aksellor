@@ -16,7 +16,7 @@ const cases = [
     teaser:
       "E-handelsløsning og plattform som støtter vekst på tvers av kanaler.",
     expanded:
-      "Placeholder: Hoyer har valgt Aksellor Cloud for å samle netthandel og markedsføring under ett tak. Vi leverte en skalerbar plattform med rask tid til marked og tydelig eierskap.",
+      "Placeholder: Hoyer har valgt Aksellor for å samle netthandel og markedsføring under ett tak. Vi leverte en skalerbar plattform med rask tid til marked og tydelig eierskap.",
     impacts: [
       "Kortere tid fra idé til lansering",
       "Én felles plattform for flere merkevarer",

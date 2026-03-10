@@ -36,7 +36,7 @@ export function TaKontaktSection() {
               Ta kontakt
             </h2>
             <p className="section-lead mt-4 lead text-muted-foreground">
-              Vi vil gjerne høre om behovet ditt og hvordan Aksellor Cloud kan
+              Vi vil gjerne høre om behovet ditt og hvordan Aksellor kan
               bidra. Send en melding så tar vi en uforpliktende prat.
             </p>
             <ul className="mt-6 space-y-3" role="list">

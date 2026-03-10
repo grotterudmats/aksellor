@@ -32,9 +32,6 @@ export function HvaViGjorSection() {
             transition={fu0.transition}
             className="max-w-[60ch]"
           >
-            <p className="mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground/80" aria-hidden>
-              Oversikt
-            </p>
             <h2
               id="hva-vi-gjor-heading"
               className="section-title text-2xl font-semibold tracking-tight text-foreground sm:text-3xl"
@@ -42,7 +39,7 @@ export function HvaViGjorSection() {
               Hva vi gjør
             </h2>
             <p className="section-lead mt-4 text-lg md:text-xl leading-relaxed text-muted-foreground">
-              Aksellor Cloud styrker bedrifter med banebrytende nettløsninger,
+              Aksellor styrker bedrifter med banebrytende nettløsninger,
               e-handelsplattformer og strategisk rådgivning for å drive
               eksponentiell vekst.
             </p>

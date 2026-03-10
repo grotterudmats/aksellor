@@ -49,8 +49,8 @@ export function HeroSection() {
               <br />
               digitale Handel
             </h1>
-            <p className="mt-5 lead text-muted-foreground leading-relaxed">
-              Aksellor Cloud bygger plattform, e-handel og rådgivning som gir
+            <p className="mt-6 md:mt-7 lead text-muted-foreground leading-relaxed">
+              Aksellor bygger plattform, e-handel og rådgivning som gir
               bedrifter eksponentiell vekst med mindre leverandøravhengighet og ett
               samlet ansvarspunkt.
             </p>
@@ -65,7 +65,7 @@ export function HeroSection() {
             </motion.div>
 
           <motion.div
-            className="relative hidden lg:block lg:col-span-5 lg:pl-6"
+            className="relative hidden lg:flex lg:col-span-5 lg:items-start lg:justify-end lg:pl-8"
             aria-hidden
             initial={
               reduced ? undefined : { opacity: 0, y: 10, scale: 0.98 }
@@ -80,30 +80,55 @@ export function HeroSection() {
             }
           >
             <div
-              className="absolute -inset-6 -z-10 rounded-[2rem] bg-primary/[0.05] blur-3xl"
+              className="absolute -inset-8 -z-10 rounded-[2rem] bg-primary/[0.05] blur-3xl"
               aria-hidden
             />
-            <div className="absolute right-2 top-1 -z-10 w-[calc(100%-0.5rem)] max-w-[420px] scale-[0.98] rounded-[var(--radius)] border border-border bg-card/70 opacity-50" aria-hidden />
-            <div className="relative w-full max-w-[460px] rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-2)]">
-              <div className="h-2.5 w-2/3 rounded-sm bg-muted" />
-              <div className="mt-4 h-2.5 w-1/2 rounded-sm bg-muted/80" />
-              <div className="mt-4 flex gap-3">
-                <div className="h-20 flex-1 rounded-lg bg-muted/60" />
-                <div
-                  className="h-20 flex-1 rounded-lg border border-primary/20 bg-primary/10 flex flex-col justify-center gap-0.5 px-3"
-                  aria-hidden
-                >
-                  <span className="text-xs font-semibold text-primary">Conversion</span>
-                  <span className="text-sm font-bold text-primary">+18%</span>
+            <div className="relative w-full min-w-[320px] max-w-[520px] rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-2)]">
+              <div className="flex items-center justify-between gap-2">
+                <div className="h-2.5 w-1/3 rounded-sm bg-muted" />
+                <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Dashboard</span>
+              </div>
+              <div className="mt-5 grid grid-cols-3 gap-2">
+                <div className="rounded-lg border border-border bg-muted/40 p-3">
+                  <div className="h-2 w-2/3 rounded-sm bg-muted" />
+                  <div className="mt-2 h-4 w-3/4 rounded-sm bg-muted/80" />
+                </div>
+                <div className="rounded-lg border border-primary/20 bg-primary/10 p-3">
+                  <div className="h-2 w-2/3 rounded-sm bg-primary/40" />
+                  <div className="mt-2 h-4 w-4/5 rounded-sm font-semibold text-primary">AOV</div>
+                </div>
+                <div className="rounded-lg border border-border bg-muted/40 p-3">
+                  <div className="h-2 w-2/3 rounded-sm bg-muted" />
+                  <div className="mt-2 h-4 w-3/4 rounded-sm bg-muted/80" />
                 </div>
               </div>
-              <div className="mt-4 flex items-end gap-0.5 h-7">
-                {[4, 6, 5, 8, 7, 10, 9].map((h, i) => (
-                  <div key={i} className="flex-1 min-w-[3px] rounded-sm bg-muted/80" style={{ height: `${h * 2}px` }} />
-                ))}
-                <div className="flex-1 min-w-[3px] rounded-sm bg-primary/50" style={{ height: "14px" }} />
+              <div className="mt-4 flex gap-2">
+                <div className="h-2.5 w-16 rounded-sm bg-muted/80" />
+                <div className="h-2.5 w-20 rounded-sm bg-muted/60" />
               </div>
-              <div className="mt-3 h-2.5 w-full rounded-sm bg-muted/70" />
+              <div className="mt-4 space-y-2">
+                <div className="flex items-center gap-3 rounded-md border border-border bg-muted/30 px-3 py-2">
+                  <div className="h-8 w-8 shrink-0 rounded bg-muted/80" />
+                  <div className="flex-1">
+                    <div className="h-2.5 w-4/5 rounded-sm bg-muted/70" />
+                    <div className="mt-1.5 h-2 w-1/3 rounded-sm bg-muted/50" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-md border border-primary/20 bg-primary/5 px-3 py-2">
+                  <div className="h-8 w-8 shrink-0 rounded bg-primary/20" />
+                  <div className="flex-1">
+                    <div className="h-2.5 w-3/4 rounded-sm bg-primary/30" />
+                    <div className="mt-1.5 h-2 w-1/4 rounded-sm bg-primary/20" />
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-md border border-border bg-muted/30 px-3 py-2">
+                  <div className="h-8 w-8 shrink-0 rounded bg-muted/80" />
+                  <div className="flex-1">
+                    <div className="h-2.5 w-4/5 rounded-sm bg-muted/70" />
+                    <div className="mt-1.5 h-2 w-1/3 rounded-sm bg-muted/50" />
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container py-12">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="text-sm font-semibold text-foreground">Aksellor Cloud</p>
+            <p className="text-sm font-semibold text-foreground">Aksellor</p>
             <p className="mt-1 max-w-xs text-xs text-muted-foreground">
               Plattform, e-handel og rådgivning for fremtidens digital handel.
             </p>

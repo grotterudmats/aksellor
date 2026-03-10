@@ -22,7 +22,7 @@ const fontMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aksellor Cloud – Fremtidens digital handel",
+  title: "Aksellor – Fremtidens digital handel",
   description:
     "Plattform, e-handel og rådgivning for eksponentiell vekst. Mindre leverandøravhengighet, ett samlet ansvarspunkt.",
 };
