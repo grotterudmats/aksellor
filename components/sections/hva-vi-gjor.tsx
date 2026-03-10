@@ -21,7 +21,7 @@ export function HvaViGjorSection() {
     <section
       id="hva-vi-gjor"
       aria-labelledby="hva-vi-gjor-heading"
-      className="section-sep bg-background pt-12 pb-12 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16"
+      className="section-sep hva-vi-gjor-bg relative pt-12 pb-12 sm:pt-14 sm:pb-14 lg:pt-16 lg:pb-16"
     >
       <div className="container">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
@@ -56,7 +56,7 @@ export function HvaViGjorSection() {
             whileInView={fu1.whileInView}
             viewport={fu1.viewport}
             transition={fu1.transition}
-            className="rounded-[var(--radius)] border border-border bg-gradient-to-b from-background to-primary/5 p-6 shadow-[var(--shadow-2)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-2)] sm:p-8"
+            className="rounded-[var(--radius)] border border-border bg-card p-6 shadow-[var(--shadow-2)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-2)] sm:p-8"
           >
             <h3 className="text-lg font-semibold tracking-tight text-foreground">
               Én plattform

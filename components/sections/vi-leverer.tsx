@@ -75,7 +75,7 @@ export function ViLevererSection() {
                 whileInView={fu.whileInView}
                 viewport={fu.viewport}
                 transition={fu.transition}
-                className="rounded-[var(--radius)] border border-border bg-gradient-to-b from-background to-primary/5 p-5 shadow-[var(--shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-2)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
+                className="rounded-[var(--radius)] border border-border bg-card p-5 shadow-[var(--shadow)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-2)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" aria-hidden />

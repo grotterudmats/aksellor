@@ -34,6 +34,7 @@
   --color-card-foreground: hsl(var(--card-foreground));
   --color-input: hsl(var(--input));
   --font-sans: var(--font-sans);
+  --font-montserrat: var(--font-montserrat);
 }
 
 *,
@@ -61,7 +62,6 @@ a {
 
 a:hover {
   color: hsl(var(--foreground));
-  text-decoration: underline;
 }
 
 :focus-visible {
@@ -165,6 +165,15 @@ main {
   flex: 1;
 }
 
+.hva-vi-gjor-bg {
+  background: radial-gradient(
+    ellipse 60% 40% at 85% 50%,
+    hsl(var(--primary) / 0.04),
+    transparent 55%
+  );
+  background-color: hsl(var(--background));
+}
+
 .hero-bg {
   position: relative;
   background-color: hsl(var(--background));
@@ -227,29 +236,61 @@ main {
 }
 
 .hero-h1 {
-  font-size: clamp(1.875rem, 4vw + 1rem, 2.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 6vw + 1.5rem, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
 }
 
-/* Logo row: single horizontal row, no wrap */
-.logo-row {
+/* Partner logo marquee */
+.partner-marquee-wrapper {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+.partner-marquee {
   display: flex;
-  align-items: center;
+  width: max-content;
+  animation: partner-marquee 26s linear infinite;
 }
 
-.logo-wordmark {
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: hsl(var(--muted-foreground));
-  white-space: nowrap;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-  flex-shrink: 0;
+.partner-marquee:hover {
+  animation-play-state: paused;
 }
 
-.logo-wordmark:hover {
-  opacity: 0.9;
+.partner-marquee-static {
+  animation: none;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.partner-static {
+  display: flex;
+  justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-marquee {
+    animation: none;
+  }
+}
+
+@keyframes partner-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

@@ -5,20 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 
-const LOGO_LABELS = [
-  "HOYER",
-  "DAVID\u2011ANDERSEN",
-  "MIINTO",
-  "COCKTAIL CLUB",
-  "STORM",
-  "AKSELLOR",
-];
-
-const SPEC_ITEMS = [
-  "Full control",
-  "Less vendor lock-in",
-  "One accountable team",
-];
+const PARTNER_LOGOS = Array.from({ length: 12 }, (_, i) => `/partner${i + 1}.png`);
 
 export function HeroSection() {
   const reduced = useReducedMotion();
@@ -51,25 +38,16 @@ export function HeroSection() {
               reduced ? { duration: 0 } : { duration: 0.45, ease: "easeOut" }
             }
           >
-            <p
-              className="mb-4 inline-flex rounded-md border border-border bg-muted/60 px-3 py-1.5 text-xs font-medium tracking-wide text-muted-foreground"
-              aria-hidden
-            >
-              Aksellor Cloud · Commerce Platform
-            </p>
             <h1
               id="hero-heading"
               className="hero-h1 font-semibold tracking-tight text-foreground"
             >
-              Utvikler{" "}
+              Vi utvikler{" "}
               <span className="relative inline-block">
-                <span className="relative z-10">fremtidens</span>
-                <span
-                  className="absolute inset-0 -inset-y-0.5 rounded-sm bg-primary/15 -z-10"
-                  aria-hidden
-                />
-              </span>{" "}
-              digital handel
+                <span className="relative z-10 bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Fremtidens</span>
+              </span>
+              <br />
+              digitale Handel
             </h1>
             <p className="mt-5 lead text-muted-foreground leading-relaxed">
               Aksellor Cloud bygger plattform, e-handel og rådgivning som gir
@@ -78,22 +56,11 @@ export function HeroSection() {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Button asChild size="lg">
-                <Link href="#ta-kontakt">Book demo</Link>
+                <Link href="https://tidycal.com/aksellor/30-minute-meeting">Book demo</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="#case-studies">Se leveranser</Link>
+                <Link href="#ta-kontakt">Kontakt oss</Link>
               </Button>
-            </div>
-            <div
-              className="mt-4 flex flex-wrap items-center gap-x-2 text-xs text-muted-foreground"
-              aria-hidden
-            >
-              {SPEC_ITEMS.map((item, i) => (
-                <span key={item} className="flex items-center gap-x-2">
-                  {i > 0 && <span className="opacity-50">•</span>}
-                  <span>{item}</span>
-                </span>
-              ))}
             </div>
             </motion.div>
 
@@ -141,30 +108,27 @@ export function HeroSection() {
           </motion.div>
         </div>
         <div className="mt-10 w-full border-t border-border/60 pt-6">
-          <p className="mb-3 text-xs text-muted-foreground">Trusted by teams that scale.</p>
           <div
-            className="logo-row flex w-full items-center justify-evenly gap-8"
-            aria-label="Partners"
+            className={reduced ? "partner-static" : "partner-marquee-wrapper overflow-hidden"}
+            aria-label="Partnere"
           >
-            {LOGO_LABELS.map((label, i) => (
-              <motion.span
-                key={`${label}-${i}`}
-                className="logo-wordmark whitespace-nowrap"
-                initial={reduced ? undefined : { opacity: 0, y: 10 }}
-                animate={reduced ? undefined : { opacity: 1, y: 0 }}
-                transition={
-                  reduced
-                    ? { duration: 0 }
-                    : {
-                        duration: 0.45,
-                        delay: 0.12 + i * 0.04,
-                        ease: "easeOut",
-                      }
-                }
-              >
-                {label}
-              </motion.span>
-            ))}
+            <div
+              className={`flex items-center gap-12 ${reduced ? "partner-marquee-static justify-center" : "partner-marquee"}`}
+            >
+              {(reduced ? PARTNER_LOGOS.slice(0, 6) : [...PARTNER_LOGOS, ...PARTNER_LOGOS]).map((src, i) => (
+                <div
+                  key={i}
+                  className="partner-logo flex h-10 w-24 shrink-0 items-center justify-center grayscale opacity-50 transition-all duration-200 hover:grayscale-0 hover:opacity-90"
+                >
+                  <img
+                    src={src}
+                    alt=""
+                    className="max-h-8 w-auto object-contain"
+                    onError={(e) => e.currentTarget.classList.add("hidden")}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -98,7 +98,7 @@ export function CaseStudiesSection() {
                 whileInView={fu.whileInView}
                 viewport={fu.viewport}
                 transition={fu.transition}
-                className="overflow-hidden rounded-[var(--radius)] border border-border bg-card transition-shadow hover:shadow-[var(--shadow)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
+                className="overflow-hidden rounded-[var(--radius)] border border-border bg-card shadow-[var(--shadow)] transition-shadow hover:shadow-[var(--shadow-2)] focus-within:ring-2 focus-within:ring-primary/20 focus-within:ring-offset-2"
               >
                 <div className="p-5 sm:p-6">
                   <div className="flex flex-wrap items-center gap-2">
