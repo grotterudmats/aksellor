@@ -56,7 +56,7 @@ export function HeroSection() {
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
               <Button asChild size="lg">
-                <Link href="https://tidycal.com/aksellor/30-minute-meeting">Book demo</Link>
+                <Link href="https://tidycal.com/aksellor/30-minute-meeting" className="!text-primary-foreground hover:!text-primary-foreground">Book demo</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
                 <Link href="#ta-kontakt">Kontakt oss</Link>

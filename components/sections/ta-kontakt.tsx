@@ -13,11 +13,50 @@ const bullets = [
 
 export function TaKontaktSection() {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setStatus("sending");
-    setTimeout(() => setStatus("done"), 800);
+
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      message: String(fd.get("message") ?? ""),
+      company: String(fd.get("company") ?? "") || undefined,
+      hp: String(fd.get("hp") ?? ""),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = (await res.json().catch(() => null)) as
+        | { ok: true }
+        | { ok: false; error?: string }
+        | null;
+
+      if (!res.ok || !data || data.ok !== true) {
+        setStatus("idle");
+        setError(
+          (data && "error" in data && data.error) ||
+            "Noe gikk galt. Prøv igjen."
+        );
+        return;
+      }
+
+      form.reset();
+      setStatus("done");
+      setTimeout(() => setStatus("idle"), 3500);
+    } catch {
+      setStatus("idle");
+      setError("Kunne ikke sende. Sjekk nettverket og prøv igjen.");
+    }
   }
 
   return (
@@ -61,6 +100,14 @@ export function TaKontaktSection() {
               className="space-y-4"
               aria-label="Kontaktskjema"
             >
+              <input
+                type="text"
+                name="hp"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden
+              />
               <div>
                 <label
                   htmlFor="contact-name"
@@ -97,6 +144,22 @@ export function TaKontaktSection() {
               </div>
               <div>
                 <label
+                  htmlFor="contact-company"
+                  className="block text-sm font-medium text-foreground"
+                >
+                  Selskap <span className="text-muted-foreground">(valgfritt)</span>
+                </label>
+                <input
+                  id="contact-company"
+                  type="text"
+                  name="company"
+                  autoComplete="organization"
+                  className="mt-1.5 w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+                  placeholder="Firmanavn"
+                />
+              </div>
+              <div>
+                <label
                   htmlFor="contact-message"
                   className="block text-sm font-medium text-foreground"
                 >
@@ -123,6 +186,12 @@ export function TaKontaktSection() {
                     ? "Sendt"
                     : "Send"}
               </Button>
+              {status === "done" && (
+                <p className="text-sm text-primary">
+                  Takk! Meldingen er sendt. Vi tar kontakt snart.
+                </p>
+              )}
+              {error && <p className="text-sm text-red-600">{error}</p>}
               <p className="text-xs text-muted-foreground">
                 Vi behandler opplysningene i henhold til vår personvernerklæring.
                 Ved å sende skjemaet godtar du at vi kontakter deg i forbindelse

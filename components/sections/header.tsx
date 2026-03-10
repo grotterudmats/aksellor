@@ -44,7 +44,7 @@ export function Header() {
             </Link>
           ))}
           <Button asChild size="sm">
-            <Link href="https://tidycal.com/aksellor/30-minute-meeting">Book demo</Link>
+            <Link href="https://tidycal.com/aksellor/30-minute-meeting" className="!text-primary-foreground hover:!text-primary-foreground">Book demo</Link>
           </Button>
         </nav>
       </div>
