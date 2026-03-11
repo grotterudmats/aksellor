@@ -107,6 +107,25 @@ export function CaseStudiesSection() {
         </p>
         <div className="mt-8">
           <div className="scrollParent relative">
+            <div className="buttonsHolder pointer-events-none absolute inset-y-0 left-0 right-0 hidden md:flex items-center justify-between" style={{ opacity: "0" }}>
+              <button
+                type="button"
+                onClick={() => scrollByCard("left")}
+                className="pointer-events-auto -ml-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted"
+                aria-label="Forrige case"
+              >
+                <ChevronLeft className="h-4 w-4" aria-hidden />
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollByCard("right")}
+                className="pointer-events-auto -mr-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background shadow-md hover:bg-muted"
+                aria-label="Neste case"
+              >
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
+
             <div className="scrollX">
               <div
                 ref={scrollerRef}
@@ -229,33 +248,6 @@ export function CaseStudiesSection() {
               );
             })}
               </div>
-            </div>
-
-            <div className="buttonsHolder pointer-events-none absolute top-1/2 hidden -translate-y-1/2 md:flex">
-              <button
-                type="button"
-                className="btnLeft pointer-events-auto rounded-full bg-background/90 shadow-[var(--shadow)] hover:bg-background"
-                style={{
-                  position: "absolute",
-                  left: "calc((100% - 100vw) / 2 + 16px)",
-                }}
-                onClick={() => scrollByCard("left")}
-                aria-label="Forrige case"
-              >
-                <ChevronLeft className="h-4 w-4" aria-hidden />
-              </button>
-              <button
-                type="button"
-                className="btnRight pointer-events-auto rounded-full bg-background/90 shadow-[var(--shadow)] hover:bg-background"
-                style={{
-                  position: "absolute",
-                  right: "calc((100% - 100vw) / 2 + 16px)",
-                }}
-                onClick={() => scrollByCard("right")}
-                aria-label="Neste case"
-              >
-                <ChevronRight className="h-4 w-4" aria-hidden />
-              </button>
             </div>
           </div>
         </div>
