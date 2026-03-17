@@ -13,7 +13,7 @@ const cases = [
     id: "hoyer",
     name: "Hoyer.no",
     tag: "E-handel",
-    image: "/case1.jpg",
+    image: "/images/hoyer.png",
     teaser:
       "E-handelsløsning og plattform som støtter vekst på tvers av kanaler.",
     expanded:
@@ -28,7 +28,7 @@ const cases = [
     id: "david-andersen",
     name: "David-andersen.no",
     tag: "Premium",
-    image: "/case2.jpg",
+    image: "/images/david-andersen.png",
     teaser:
       "Premium merkevare med behov for fleksibel e-handel og sterk brukeropplevelse.",
     expanded:
@@ -43,7 +43,7 @@ const cases = [
     id: "cocktailclub",
     name: "Cocktailclub.com",
     tag: "B2B",
-    image: "/case3.jpg",
+    image: "/images/cc.png",
     teaser:
       "Abonnements- og engrosløsning med integrasjoner mot lager og betaling.",
     expanded:
@@ -58,7 +58,7 @@ const cases = [
     id: "miinto",
     name: "Miinto.com",
     tag: "Skalering",
-    image: "/case4.jpg",
+    image: "/images/miinto.png",
     teaser:
       "Skalering av flermerkevare-plattform med fokus på ytelse og brukeropplevelse.",
     expanded:
